@@ -137,6 +137,7 @@ footer {
   border-radius: 2rem;
   border: 2px solid currentColor;
   z-index: 2;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 600px) {
