@@ -58,6 +58,10 @@ img {
   row-gap: 4rem;
 }
 
+.reconstruction {
+  position: relative;
+}
+
 img-comparison-slider {
   border: 1px dashed currentColor;
   outline: none;
@@ -140,7 +144,12 @@ footer {
   white-space: nowrap;
 }
 
-@media screen and (min-width: 600px) {
+.fullscreen-toggle,
+.fullscreen-toggle-label {
+  display: none;
+}
+
+@media screen and (min-width: 736px) {
   body {
     padding: 2rem 2rem 6rem 2rem;
   }
@@ -148,6 +157,70 @@ footer {
   .header__title {
     flex-direction: row;
     align-items: center;
+  }
+
+  .fullscreen-toggle {
+    appearance: none;
+    display: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: zoom-out;
+  }
+  
+  .fullscreen-toggle:checked {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+  }
+  
+  .fullscreen-toggle-label {
+    opacity: 0.5;
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 1;
+    cursor: zoom-in;
+    overflow: hidden;
+    text-indent: -99em;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-size: 80% auto;
+    background-color: #d4cec3;
+    background-position: center center;
+    border-radius: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctitle%3Efullscreen%3C/title%3E%3Cpath d='M5,5H10V7H7V10H5V5M14,5H19V10H17V7H14V5M17,14H19V19H14V17H17V14M10,17V19H5V14H7V17H10Z' /%3E%3C/svg%3E");
+  }
+
+  .fullscreen-toggle-label:hover {
+    opacity: 1;
+  }
+  
+  .fullscreen-toggle:checked + .fullscreen-toggle-label {
+    opacity: 1;
+    position: fixed;
+    z-index: 1002;
+    cursor: zoom-out;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctitle%3Eclose%3C/title%3E%3Cpath d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z' /%3E%3C/svg%3E");
+  }
+  
+  .fullscreen-toggle:checked ~ img-comparison-slider {
+    position: fixed;
+    z-index: 1001;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 90vh;
+    width: 72vh; /* 90 / (1350 / 1080) = 88.88888888889 */
+    max-width: 90vw;
+    max-height: 112.5vw; /* 1350 / 1080 * 90 = 112.5 */
   }
 }
 
