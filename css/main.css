@@ -63,6 +63,8 @@ img {
 }
 
 img-comparison-slider {
+  display: block;
+  aspect-ratio: 1080/1350;
   border: 1px dashed currentColor;
   outline: none;
   cursor: col-resize;
