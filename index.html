@@ -57,7 +57,7 @@
     </div>
     <div class="header__intro">
         <p>The AI Witness Report brings police composite sketches to life with the help of AI-technology. This project's goal is to experiment, educate and entertain.</p>
-        <p>Any resemblance to persons, living or dead, is purely coincidental.</p>
+        <p>Any resemblance to persons, living or dead, is purely coincidental. Please read the <a href="#faq">frequently asked questions</a> to learn more about the goal, process and nuances of this project.</p>
     </div>
   </header>
   <main>
@@ -630,6 +630,46 @@
         </div>
       </div>
 
+    </div>
+
+    <div class="faq" id="faq">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>What is the purpose of this project?</summary>
+        <p>The purpose of AI Witness Report is to explore the potential of Stable Diffusion, a deep learning text-to-image model, to generate realistic images from police composite sketches. I am not actively trying to solve any cold cases or identify any suspects. I am simply trying to answer the hypothetical question: “If a composite sketch was extremely accurate, what would the actual person look like?”. In reality, composite sketches are almost never that accurate.</p>
+      </details>
+      <details>
+        <summary>How do you obtain the sketches?</summary>
+        <p>I collect the sketches from various online sources, such as news articles or websites dedicated to unsolved crimes. I do not have any affiliation or contact with the police or the victims' families. I only use publicly available sketches that have been released by the authorities for media purposes.</p>
+      </details>
+      <details>
+        <summary>How do you generate the images?</summary>
+        <p>I use Stable Diffusion, a deep learning text-to-image model that can create high-quality images from noise and textual input, in combination with an add-on called ControlNet, which allows me to provide lineart as an additional input.</p>
+        <p>A short summary of the process:</p>
+        <ul>
+          <li>I look for interesting cases that are either unsolved, iconic or have a peculiar composite sketch.</li>
+          <li>The original composite sketch is upscaled and manually traced to achieve clean, sharp lineart.</li>
+          <li>A fitting checkpoint model is chosen that is suited for photorealistic images.</li>
+          <li>The cleaned up sketch and a fitting textual description are entered into Stable Diffusion, along with a dozen parameters that are tuned to achieve the desired result.</li>
+          <li>I start generating images, all the while tweaking the sketch, the textual description and the parameters, until I get a result that closely matches the original sketch.</li>
+          <li>Parts of the image that are not to my liking are inpainted (replaced).</li>
+          <li>The image get upscaled through Stable Diffusion.</li>
+          <li>Lastly, the upscaled image gets passed over to Photoshop to add the final touches and nudge everything into place, so it precisely matches the original sketch.</li>
+        </ul>
+        <p>This whole process takes about 8 hours.</p>
+      </details>
+      <details>
+        <summary>How accurate are the images?</summary>
+        <p>The images are not necessarily accurate representations of the actual suspects or unidentified persons. They are only possible interpretations of the sketches, based on the information found on the internet, the composite sketch and assumptions that the model has learned from a large dataset of human faces. The model does not know anything about the context, background, or identity of the person that was not manually provided to it. It only tries to create plausible faces that match the sketches as closely as possible.</p>
+      </details>
+      <details>  
+        <summary>Are your realistic images better for identifying a person?</summary>
+        <p>No, I think the original, vague sketch is probably better than the realistic image for multiple reasons. First, because the sketch is based on the memory of an eyewitness, who may have seen the suspect only briefly or under stressful conditions. The sketch may not capture all the details or nuances of the suspect's appearance, and may even contain errors or distortions. The realistic image, on the other hand, adds a lot of details and features that may not be present or accurate in the sketch, and may even contradict or overwrite some of the original information. Second, because the sketch is more open to interpretation and variation, it allows for a wider range of possible matches and identifications. The realistic image, on the other hand, narrows down the possibilities and creates a more specific and fixed impression of the suspect, which may exclude or mislead potential witnesses or investigators.</p>
+      </details>
+      <details>
+        <summary>Does AI Witness Report take requests?</summary>
+        <p>I’m open to tips on interesting cases and composite sketches. However, I feel it is important that I remain unbiased in the creation of the images. That is why I do not accept unverified information that might steer the image in a specific direction. Even though my whole process is not very scientific in itself, using unverified, biased information could result in misleading images that could wrongfully influence an investigation or public opinion. In short, if you would like me to reconstruct a specific sketch, just point me to publicly available, reputable sources and try to leave your personal opinions out.</p>
+      </details>
     </div>
 
     <div class="global-img-switch">Show: <a data-type="sketch" href="#">sketches</a> - <a data-type="ai_image" href="#">AI images</a></div>

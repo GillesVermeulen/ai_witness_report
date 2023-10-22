@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Courier Prime', monospace;
   padding: 1rem 1rem 6rem 1rem;
@@ -149,6 +153,42 @@ footer {
 .fullscreen-toggle,
 .fullscreen-toggle-label {
   display: none;
+}
+
+.faq {
+  margin-top: 5rem;
+  max-width: 58rem;
+}
+
+details {
+  padding: 1rem 0;
+  border-bottom: 1px dashed currentColor;
+}
+
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary {
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+summary::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+details[open] > summary::before {
+  content: "-";
 }
 
 @media screen and (min-width: 736px) {
