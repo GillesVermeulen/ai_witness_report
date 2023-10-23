@@ -1,5 +1,6 @@
 const globalImgSwitchLinkElements = document.querySelectorAll('.global-img-switch a');
 const imgComparisonSliderElements = document.querySelectorAll('img-comparison-slider');
+const fullscreenToggleElements = document.querySelectorAll('.fullscreen-toggle');
 let imgLinkSwitchClickTimeout = null;
 
 globalImgSwitchLinkElements.forEach((el) => {
@@ -27,3 +28,30 @@ function imgLinkSwitchClickTimeoutHandler(e) {
     firstElement.style.setProperty('--transition-time', 'var(--default-transition-time)');
   });
 }
+
+function removeLocationHash() {
+  const noHashURL = window.location.href.replace(/#.*$/, '');
+  window.history.replaceState('', document.title, noHashURL);
+}
+
+if (typeof location.hash !== 'undefined' && location.hash) {
+  const targetElement = document.querySelector(location.hash);
+
+  fullscreenToggleElements.forEach((el) => {
+    el.checked = false;
+  });
+
+  if (targetElement && typeof targetElement.checked !== 'undefined') {
+    targetElement.checked = true;
+  }
+}
+
+fullscreenToggleElements.forEach((el) => {
+  el.addEventListener('change', (e) => {
+    if (e.target.checked) {
+      location.hash = e.target.id;
+    } else {
+      removeLocationHash();
+    }
+  });
+});
