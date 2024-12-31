@@ -16,14 +16,37 @@ body {
 	font-smoothing: antialiased;
 }
 
-h1, h2 {
-  font-family: 'Special Elite', monospace;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Sono", monospace, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 280;
+  font-style: normal;
+  font-variation-settings: "MONO" 1;
+  letter-spacing: 0.09em;
+  display: inline-block;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+  filter: blur(0.3px);
+  line-height: 1.4;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
-  line-height: 1.2;
-  color: #110f0e;
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+  color: #EEE;
+  display: inline;
+  padding: 0 0.5em;
+  background: linear-gradient(20deg, #222, #444, #333);
+  text-shadow: 0px 0.1em 0.1em black, 0px 0.1em 0.1em black, -0.07em -0.07em 0.04em rgba(255,255,255,0.3), 0.07em 0.07em 0.04em rgba(255,255,255,0.4), -0.07em 0.07em 0.05em black;
+  box-shadow: 0 1px 0px rgba(0,0,0,0.8);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+h1 {
+  font-size: 2.3rem;
+}
+
+h2 {
+  font-size: 1.8rem;
 }
 
 p {
@@ -44,10 +67,11 @@ img {
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
+  gap: 1rem;
 }
 
 .header__title h1 {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 .header__intro {
